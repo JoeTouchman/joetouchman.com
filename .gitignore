@@ -1,0 +1,5 @@
+# Raw source media (originals, whitepaper PDF). Web-ready copies live in assets/.
+Media/
+.DS_Store
+.claude/
+*.sb-*
