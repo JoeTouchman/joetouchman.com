@@ -59,10 +59,30 @@ document.querySelectorAll(".yt").forEach((btn) => {
   btn.addEventListener("click", () => {
     const frame = document.createElement("iframe");
     frame.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.yt}?autoplay=1&rel=0`;
-    frame.title = "JoebotHand demo";
+    frame.title = "Joebot Hand demo";
     frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     frame.allowFullscreen = true;
     btn.replaceChildren(frame);
     btn.disabled = true;
   }, { once: true });
+});
+
+// Drum clip: one small play/pause button, loaded only when pressed
+document.querySelectorAll(".player__btn").forEach((btn) => {
+  const holder = btn.closest(".player");
+  let audio = null;
+  const setPlaying = (on) => {
+    holder.classList.toggle("is-playing", on);
+    btn.setAttribute("aria-label", on ? "Pause drum clip" : "Play drum clip");
+  };
+  btn.addEventListener("click", () => {
+    if (!audio) {
+      audio = new Audio(btn.dataset.audio);
+      audio.addEventListener("ended", () => setPlaying(false));
+      audio.addEventListener("pause", () => setPlaying(false));
+      audio.addEventListener("play", () => setPlaying(true));
+    }
+    if (audio.paused) audio.play().catch(() => setPlaying(false));
+    else audio.pause();
+  });
 });

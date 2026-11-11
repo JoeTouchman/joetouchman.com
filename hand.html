@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JoebotHand · Joe Touchman</title>
-  <meta name="description" content="JoebotHand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
+  <title>Joebot Hand · Joe Touchman</title>
+  <meta name="description" content="Joebot Hand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
   <link rel="canonical" href="https://joetouchman.com/hand.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="JoebotHand · Joe Touchman">
-  <meta property="og:description" content="JoebotHand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
+  <meta property="og:title" content="Joebot Hand · Joe Touchman">
+  <meta property="og:description" content="Joebot Hand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
   <meta property="og:url" content="https://joetouchman.com/hand.html">
   <meta property="og:image" content="https://joetouchman.com/assets/img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -25,7 +25,8 @@
   <header class="nav" id="nav">
     <a class="nav__logo" href="index.html" aria-label="Joe Touchman, home">JT<span>.</span></a>
     <nav class="nav__links" aria-label="Pages">
-      <a href="hand.html" class="is-active">JoebotHand</a>
+      <a href="index.html">Home</a>
+      <a href="hand.html" class="is-active">Joebot Hand</a>
       <a href="citrus.html">Citrus Circuits</a>
       <a href="vex.html">VEX</a>
       <a href="index.html#about" class="hide-s">About</a>
@@ -39,7 +40,7 @@
         <div>
           <a class="back" href="index.html#projects">All projects</a>
           <span class="tag">Personal project · 2026</span>
-          <h1>JoebotHand<span>.</span></h1>
+          <h1>Joebot Hand<span>.</span></h1>
           <p class="lead">A 3D-printed, five-finger robotic hand that copies your hand in real time. A web app tracks your fingers through a phone camera and sends each finger's position over Wi-Fi to an ESP32-S3, which drives five servos that pull the fingers closed with string.</p>
           <ul class="chips">
             <li>ESP32-S3</li><li>MediaPipe hand tracking</li><li>HTTPS + WebSocket</li><li>5 MG90S servos</li><li>3D printed</li>
@@ -49,7 +50,7 @@
             <a class="btn" href="#try">Try the live demo</a>
           </div>
         </div>
-        <button class="yt frame" type="button" data-yt="8RsPFerTg4E" aria-label="Play the one-minute JoebotHand demo video">
+        <button class="yt frame" type="button" data-yt="8RsPFerTg4E" aria-label="Play the one-minute Joebot Hand demo video">
           <img src="https://i.ytimg.com/vi/8RsPFerTg4E/maxresdefault.jpg" alt="">
           <span class="yt__play" aria-hidden="true"></span>
         </button>
@@ -80,20 +81,6 @@
             </div>
           </div>
         </div>
-        <div class="cards" style="margin-top:14px">
-          <article class="card">
-            <h4>1 · Tracking</h4>
-            <p>MediaPipe finds 21 points on the hand in 3D. Each finger's curl is the sum of its joint bend angles, with side-to-side spread removed, so it doesn't depend on how the hand is turned. Each finger is calibrated between an open and a curled pose.</p>
-          </article>
-          <article class="card">
-            <h4>2 · Link</h4>
-            <p>The phone joins the hand's own Wi-Fi hotspot and opens the app the ESP32 serves. The five curl values are sent over a secure WebSocket about 30 times a second.</p>
-          </article>
-          <article class="card">
-            <h4>3 · Firmware</h4>
-            <p>The ESP32-S3 converts each percentage to a servo angle inside that finger's safe limits and drives the servo with hardware PWM. A watchdog opens the hand if the phone disconnects.</p>
-          </article>
-        </div>
       </section>
 
       <section class="block reveal" id="try">
@@ -123,6 +110,25 @@
                 <li><span>Pinky</span><i><b></b></i><em>0%</em></li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Wiring</h2>
+        <div class="split split--wide" style="align-items:start">
+          <figure class="frame schematic">
+            <img src="assets/img/hand-wiring.svg" loading="lazy" width="875" height="532" alt="Wiring schematic: a 5 V 5 A adapter feeds +5 V through the power switch, with a 1000 microfarad capacitor across the supply. The ESP32-S3 drives five MG90S servos from GPIO 4, 5, 6, 7 and 15, switches the button's LED ring from GPIO 16 through a 330 ohm resistor and an S8050 transistor, and drives a buzzer from GPIO 17.">
+            <figcaption>My wiring schematic. <a href="https://github.com/JoeTouchman/JoebotHand/blob/main/docs/wiring.svg" target="_blank" rel="noopener">Full size on GitHub</a></figcaption>
+          </figure>
+          <div>
+            <p>The electronics are my own design. The tutorial's hand runs on an Arduino with flex sensors. I replaced all of that with an ESP32-S3, planned the circuit, and did all the wiring and soldering myself.</p>
+            <ul class="ticks">
+              <li><b>Power.</b> One 5 V 5 A supply runs the five servos and the ESP32 through a latching power button, with a 1000 µF capacitor across the supply.</li>
+              <li><b>Servos.</b> Five MG90S signal lines on GPIO 4, 5, 6, 7 and 15, driven with hardware PWM.</li>
+              <li><b>Status light.</b> The LED ring in the power button, switched from GPIO 16 through an S8050 transistor and a 330 Ω resistor.</li>
+              <li><b>Buzzer.</b> A piezo on GPIO 17 for startup and connection sounds.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -185,15 +191,22 @@
       </section>
 
       <section class="block reveal">
-        <h2>Parts and credit</h2>
-        <div class="split" style="align-items:start">
-          <ul class="ticks">
-            <li>ESP32-S3 DevKitC-1 (16 MB flash, 8 MB PSRAM)</li>
-            <li>5 × MG90S servos on a 5 V 5 A supply</li>
-            <li>Braided fishing line as tendons, elastic cord to spring the fingers back open</li>
-            <li>Buzzer for startup and connection sounds, and a status light in the power button</li>
-          </ul>
-          <p class="small">The hand and finger design comes from Viral Science's flex-sensor robot hand tutorial. My work: the redesigned forearm and stand, the wiring, the move from Arduino to ESP32-S3, camera tracking in place of flex sensors, the self-hosted web app, and the firmware. The wiring schematic, firmware and STL are in the <a href="https://github.com/JoeTouchman/JoebotHand" target="_blank" rel="noopener">GitHub repository</a>.</p>
+        <h2>Credit</h2>
+        <div class="creditbox">
+          <div>
+            <h4>From a tutorial</h4>
+            <p>The 3D-printed hand and fingers, the servo placement and the string routing come from Viral Science's <a href="https://www.viralsciencecreativity.com/post/arduino-flex-sensor-controlled-robot-hand" target="_blank" rel="noopener">Arduino flex-sensor robot hand tutorial</a>.</p>
+          </div>
+          <div>
+            <h4>My work</h4>
+            <ul class="ticks">
+              <li>All of the wiring and electronics, moved from Arduino to ESP32-S3</li>
+              <li>Camera hand tracking in place of flex sensors</li>
+              <li>The web app the hand serves, and the firmware</li>
+              <li>The redesigned forearm and stand, with a button mount</li>
+              <li>The buzzer and status light</li>
+            </ul>
+          </div>
         </div>
       </section>
 

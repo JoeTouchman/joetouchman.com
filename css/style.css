@@ -95,6 +95,7 @@ h4 { font-family: var(--mono); font-size: .74rem; font-weight: 500; text-transfo
 .chips span, .chips li { font-family: var(--mono); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--soft); white-space: nowrap; }
 .ticks { display: grid; gap: 7px; }
 .ticks li { position: relative; padding-left: 22px; color: var(--soft); font-size: .94rem; line-height: 1.45; }
+.ticks li b { color: var(--text); font-weight: 600; }
 .ticks li::before { content: ""; position: absolute; left: 0; top: .62em; width: 11px; height: 2px; background: var(--accent); }
 
 /* ---------- nav ---------- */
@@ -212,10 +213,7 @@ h4 { font-family: var(--mono); font-size: .74rem; font-weight: 500; text-transfo
 /* ---------- home: about ---------- */
 .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap); align-items: start; }
 .about__text p { color: var(--soft); }
-.looking { margin: 1.1em 0 1.2em; padding: 14px 18px; border: 1px solid rgba(229, 36, 59, .45); border-radius: var(--radius); background: var(--accent-soft); }
-.looking .tag { margin-bottom: .35em; }
-.looking p:last-child { margin: 0; color: var(--text); }
-.facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: .92rem; }
+.facts { margin-top: 1.3em; padding-top: 1.2em; border-top: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: .92rem; }
 .facts dt { font: 500 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: .25em; }
 .facts dd { color: var(--soft); }
 .toolbox { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
@@ -226,9 +224,20 @@ h4 { font-family: var(--mono); font-size: .74rem; font-weight: 500; text-transfo
 .offclock .frame { display: flex; flex-direction: column; }
 .offclock video, .offclock img { width: 100%; height: clamp(130px, 13vw, 170px); object-fit: cover; }
 .offclock__drums img { object-position: 50% 38%; }
-.eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 11px; margin-left: 6px; vertical-align: -1px; }
-.eq i { width: 3px; height: 100%; background: var(--accent); animation: eq 1s ease-in-out infinite; transform-origin: bottom; }
-.eq i:nth-child(2) { animation-delay: -.3s; } .eq i:nth-child(3) { animation-delay: -.6s; } .eq i:nth-child(4) { animation-delay: -.15s; }
+/* drum clip player: the bars only move while the clip plays */
+.frame figcaption.player { display: flex; align-items: center; gap: 10px; padding: 8px 12px; }
+.player__btn { flex: none; width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .2s, background .2s; }
+.player__btn:hover { transform: scale(1.08); background: #ff3049; }
+.player__btn svg { width: 16px; height: 16px; fill: #fff; }
+.player__btn .i-pause, .is-playing .player__btn .i-play { display: none; }
+.is-playing .player__btn .i-pause { display: block; }
+.player__label { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.player__label small { font-size: .74rem; color: var(--muted); }
+.eq { flex: none; display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; }
+.eq i { width: 3px; height: 100%; background: var(--muted); transform-origin: bottom; transform: scaleY(.3); }
+.eq i:nth-child(2) { transform: scaleY(.65); } .eq i:nth-child(3) { transform: scaleY(.45); } .eq i:nth-child(4) { transform: scaleY(.85); }
+.is-playing .eq i { background: var(--accent); animation: eq .5s ease-in-out infinite; }
+.is-playing .eq i:nth-child(2) { animation-delay: -.3s; } .is-playing .eq i:nth-child(3) { animation-delay: -.12s; } .is-playing .eq i:nth-child(4) { animation-delay: -.4s; }
 @keyframes eq { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
 
 /* ---------- project pages ---------- */
@@ -279,7 +288,18 @@ blockquote cite { display: block; margin-top: .5em; font: 500 .7rem var(--mono);
 .steps li b { color: var(--text); font-weight: 600; }
 .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font: 500 .74rem var(--mono); color: var(--text); }
 .steps li:last-child::before { background: var(--accent); border-color: var(--accent); color: #fff; }
-.credit { font-size: .86rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1em; margin: 1.3em 0 0; }
+.schematic { background: #fff; }
+.schematic img { padding: 10px; }
+.schematic figcaption { background: var(--surface); }
+.schematic figcaption a { color: var(--text); }
+.creditbox { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.creditbox > div { padding: 18px 22px; }
+.creditbox > div:first-child { border-right: 1px solid var(--line); }
+.creditbox > div:last-child { background: linear-gradient(180deg, var(--accent-soft), transparent 80%); }
+.creditbox h4 { color: var(--text); }
+.creditbox > div:last-child h4 { color: var(--accent); }
+.creditbox p { color: var(--soft); margin: 0; }
+.creditbox a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .results { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1em; }
 
 /* pipeline diagram */
@@ -346,7 +366,8 @@ blockquote cite { display: block; margin-top: .5em; font: 500 .7rem var(--mono);
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
-  .hero__grid, .about, .page__head, .split, .split--wide, .demo, .robot { grid-template-columns: 1fr; }
+  .hero__grid, .about, .page__head, .split, .split--wide, .demo, .robot, .creditbox { grid-template-columns: 1fr; }
+  .creditbox > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
   .hero { min-height: 0; }
   .hero__grid { align-content: start; }
   .hero__text { justify-content: flex-start; padding-top: 28px; }

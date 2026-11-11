@@ -25,10 +25,11 @@
   <header class="nav" id="nav">
     <a class="nav__logo" href="index.html" aria-label="Joe Touchman, home">JT<span>.</span></a>
     <nav class="nav__links" aria-label="Pages">
-      <a href="hand.html">JoebotHand</a>
+      <a href="index.html" class="is-active">Home</a>
+      <a href="hand.html">Joebot Hand</a>
       <a href="citrus.html">Citrus Circuits</a>
       <a href="vex.html">VEX</a>
-      <a href="#about">About</a>
+      <a href="#about" class="hide-s">About</a>
     </nav>
   </header>
 
@@ -105,7 +106,7 @@
             </div>
             <div class="pcard__body">
               <span class="tag">Personal project · 2026</span>
-              <h3>JoebotHand</h3>
+              <h3>Joebot Hand</h3>
               <p>A 3D-printed robotic hand that copies your hand in real time.</p>
               <ul class="ticks">
                 <li>Camera hand tracking that runs in a phone browser</li>
@@ -140,7 +141,7 @@
               <img src="assets/img/vex-y2.jpg" loading="lazy" width="1000" height="1204" alt="A VEX V5 robot with a chain elevator and a pneumatic cylinder.">
             </div>
             <div class="pcard__body">
-              <span class="tag">Robotics class · 2 years</span>
+              <span class="tag">Robotics class · 2023–2025</span>
               <h3>VEX V5 robots</h3>
               <p>Two competition robots, the second one built solo.</p>
               <ul class="ticks">
@@ -165,15 +166,11 @@
           <div class="about__text">
             <p class="lead">I'm a first-year Robotics Engineering student at UC Santa Cruz, from Davis, California.</p>
             <p>I work on both sides of a robot. On the hardware side: CAD, 3D printing, wiring, soldering, and firmware for ESP32 and Arduino. On the software side: Android apps in Kotlin, web apps, and Python. I started in 3D as a kid making visual effects in Blender, which made CAD come easily later.</p>
-            <div class="looking">
-              <span class="tag tag--hot">Looking for</span>
-              <p>An undergraduate position in a robotics research lab at UC Santa Cruz.</p>
-            </div>
             <dl class="facts">
               <dt>Major</dt><dd>Robotics Engineering, B.S. (first year)</dd>
               <dt>Languages</dt><dd>English and Spanish</dd>
               <dt>Teaching</dt><dd>Two years mentoring youth robotics, ages 8 to 14</dd>
-              <dt>Outside</dt><dd>Drummer in a rock band, competitive swimmer for three years</dd>
+              <dt>Outside</dt><dd>Rock/metal drummer, competitive swimmer for 12 years</dd>
             </dl>
           </div>
 
@@ -188,11 +185,18 @@
                 <video class="loop" muted loop playsinline preload="none" poster="assets/video/vfx-lightning.jpg" aria-label="A drone shot of me being struck by computer-generated lightning in the rain.">
                   <source src="assets/video/vfx-lightning.mp4" type="video/mp4">
                 </video>
-                <figcaption><b>Visual effects.</b> Lightning, rain and a 3D-tracked crater I added to a drone shot for a short film.</figcaption>
+                <figcaption><b>Visual effects, made in Blender.</b> Lightning, rain and a 3D-tracked crater added to a drone shot for a short film.</figcaption>
               </figure>
               <figure class="frame offclock__drums">
                 <img src="assets/img/drums.jpg" loading="lazy" width="900" height="1125" alt="Joe playing a drum kit.">
-                <figcaption><b>Drums</b><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></figcaption>
+                <figcaption class="player">
+                  <button class="player__btn" type="button" data-audio="assets/audio/toxicity-drums.m4a" aria-label="Play drum clip">
+                    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                  </button>
+                  <span class="player__label"><b>Drums</b><small>"Toxicity" cover, my kit</small></span>
+                  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                </figcaption>
               </figure>
             </div>
           </div>
