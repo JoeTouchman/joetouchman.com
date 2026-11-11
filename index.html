@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Joe Touchman · Robotics</title>
-  <meta name="description" content="Joe Touchman is a Robotics Engineering student at UC Santa Cruz. He built a robotic hand that copies yours in real time, and scouting software for FRC Team 1678 Citrus Circuits.">
+  <meta name="description" content="Joe Touchman is a Robotics Engineering student at UC Santa Cruz. Projects: a robotic hand that copies yours in real time, scouting software for FRC Team 1678 Citrus Circuits, and VEX V5 robots.">
   <link rel="canonical" href="https://joetouchman.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Joe Touchman · Robotics">
-  <meta property="og:description" content="Robotics Engineering at UC Santa Cruz. I build robots, and the software that runs them.">
+  <meta property="og:description" content="Robotics Engineering at UC Santa Cruz. Robotic hand, FRC 1678 scouting software, VEX V5 robots.">
   <meta property="og:url" content="https://joetouchman.com/">
   <meta property="og:image" content="https://joetouchman.com/assets/img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,18 +20,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip" href="#hand">Skip to projects</a>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <a class="skip" href="#projects">Skip to projects</a>
 
   <header class="nav" id="nav">
-    <a class="nav__logo" href="#top" aria-label="Joe Touchman, back to top">JT<span>.</span></a>
-    <nav class="nav__links" aria-label="Sections">
-      <a href="#hand">Hand</a>
-      <a href="#citrus">Citrus Circuits</a>
-      <a href="#vex">VEX</a>
+    <a class="nav__logo" href="index.html" aria-label="Joe Touchman, home">JT<span>.</span></a>
+    <nav class="nav__links" aria-label="Pages">
+      <a href="hand.html">JoebotHand</a>
+      <a href="citrus.html">Citrus Circuits</a>
+      <a href="vex.html">VEX</a>
       <a href="#about">About</a>
     </nav>
-    <a class="btn btn--small" href="#contact">Contact</a>
   </header>
 
   <main id="top">
@@ -46,12 +44,30 @@
             <span class="line"><span>Joe</span></span>
             <span class="line line--outline"><span>Touchman</span></span>
           </h1>
-          <p class="hero__tag">I build robots, and the software that runs them.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#hand">See the hand <span aria-hidden="true">↓</span></a>
-            <a class="btn" href="https://github.com/JoeTouchman" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" data-link="email" hidden>Email</a>
-            <a class="btn" data-link="resume" hidden target="_blank" rel="noopener">Resume</a>
+
+          <div class="hero__lower">
+            <ul class="contacts" aria-label="Contact">
+              <li><span class="c">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                Santa Cruz, California</span></li>
+              <li><a class="c" href="https://github.com/JoeTouchman" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub</a></li>
+              <!-- TODO(Joe): when the LinkedIn profile exists, turn this <span> into
+                   <a class="c" href="https://www.linkedin.com/in/..." target="_blank" rel="noopener"> and delete the <small>. -->
+              <li><span class="c c--todo" title="Coming soon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                LinkedIn <small>soon</small></span></li>
+              <li><a class="c" href="mailto:jtouchma@ucsc.edu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                jtouchma@ucsc.edu <small>school</small></a></li>
+              <li><a class="c" href="mailto:jpt2008@outlook.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                jpt2008@outlook.com <small>personal</small></a></li>
+            </ul>
+            <figure class="hero__portrait">
+              <img src="assets/img/portrait-cutout.webp" width="661" height="1000" alt="Joe Touchman, smiling.">
+            </figure>
           </div>
         </div>
 
@@ -60,372 +76,126 @@
                  aria-label="Left: a phone app tracking my hand through its camera. Right: the robotic hand copying the same pose.">
             <source src="assets/video/hand-hero.mp4" type="video/mp4">
           </video>
-          <figcaption><span class="tag">Real footage</span> My hand on the left. The robot's on the right.</figcaption>
+          <figcaption><a href="https://github.com/JoeTouchman/JoebotHand" target="_blank" rel="noopener">See the project <span aria-hidden="true">↗</span></a></figcaption>
         </figure>
       </div>
 
       <div class="ticker" aria-hidden="true">
         <div class="ticker__track">
-          <span>ESP32</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Onshape CAD</span><i>✦</i><span>Computer vision</span><i>✦</i><span>3D printing</span><i>✦</i><span>Jetpack Compose</span><i>✦</i><span>Soldering</span><i>✦</i><span>Blender</span><i>✦</i><span>Teaching</span><i>✦</i><span>Drums</span><i>✦</i>
-          <span>ESP32</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Onshape CAD</span><i>✦</i><span>Computer vision</span><i>✦</i><span>3D printing</span><i>✦</i><span>Jetpack Compose</span><i>✦</i><span>Soldering</span><i>✦</i><span>Blender</span><i>✦</i><span>Teaching</span><i>✦</i><span>Drums</span><i>✦</i>
+          <span>ESP32</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Onshape</span><i>✦</i><span>Python</span><i>✦</i><span>Computer vision</span><i>✦</i><span>Arduino</span><i>✦</i><span>3D printing</span><i>✦</i><span>Jetpack Compose</span><i>✦</i><span>Soldering</span><i>✦</i><span>Blender</span><i>✦</i><span>Teaching</span><i>✦</i><span>Drums</span><i>✦</i><span>Swim</span><i>✦</i>
+          <span>ESP32</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Onshape</span><i>✦</i><span>Python</span><i>✦</i><span>Computer vision</span><i>✦</i><span>Arduino</span><i>✦</i><span>3D printing</span><i>✦</i><span>Jetpack Compose</span><i>✦</i><span>Soldering</span><i>✦</i><span>Blender</span><i>✦</i><span>Teaching</span><i>✦</i><span>Drums</span><i>✦</i><span>Swim</span><i>✦</i>
         </div>
       </div>
     </section>
 
-    <!-- ============ 01 HAND ============ -->
-    <section class="section" id="hand">
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="index">01 <span>/ Personal project · 2026</span></p>
-          <h2>A robotic hand that copies yours.</h2>
-          <p class="lead">JoebotHand is a 3D-printed, five-finger hand that mirrors a real one in real time. A web app tracks your fingers through a phone camera and streams each finger's position over Wi-Fi to an ESP32-S3, which drives five servos that pull the fingers closed with fishing-line tendons.</p>
+          <h2>Projects</h2>
+          <p>Each one opens its own page with the details.</p>
         </header>
 
-        <ul class="stats reveal">
-          <li><b data-count="5">5</b><span>servos, one per finger</span></li>
-          <li><b data-count="21">21</b><span>hand points tracked in 3D</span></li>
-          <li><b data-count="30" data-prefix="~">~30</b><span>updates per second</span></li>
-          <li><b data-count="80" data-prefix="$">$80</b><span>in parts</span></li>
-          <li><b data-count="9" data-suffix=" MB">9 MB</b><span>app + ML model, stored on the chip</span></li>
-        </ul>
-
-        <!-- pipeline -->
-        <div class="flow reveal" role="img" aria-label="How it works: the phone camera feeds MediaPipe, which finds 21 hand landmarks. A curl calculation turns them into 0 to 100 percent per finger. That goes over Wi-Fi on a secure WebSocket about 30 times a second to the ESP32-S3, which drives five servos that pull the fingers with strings.">
-          <div class="flow__lane">
-            <p class="flow__title">On the phone</p>
-            <div class="flow__row">
-              <div class="node"><b>Camera</b><span>live video</span></div>
-              <div class="arrow"></div>
-              <div class="node"><b>MediaPipe</b><span>21 landmarks in 3D</span></div>
-              <div class="arrow"></div>
-              <div class="node"><b>Curl math</b><span>0–100% per finger</span></div>
+        <div class="projects reveal">
+          <a class="pcard" href="hand.html">
+            <div class="pcard__media">
+              <video class="loop" muted loop playsinline preload="none" poster="assets/video/hand-startup.jpg" aria-label="The robotic hand playing its startup wave.">
+                <source src="assets/video/hand-startup.mp4" type="video/mp4">
+              </video>
             </div>
-          </div>
-          <div class="flow__link"><span>Wi-Fi · secure WebSocket · ~30×/s</span></div>
-          <div class="flow__lane flow__lane--hot">
-            <p class="flow__title">In the hand</p>
-            <div class="flow__row">
-              <div class="node"><b>ESP32-S3</b><span>limits + watchdog</span></div>
-              <div class="arrow"></div>
-              <div class="node"><b>5 servos</b><span>50 Hz PWM</span></div>
-              <div class="arrow"></div>
-              <div class="node"><b>Fingers</b><span>string tendons</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- live demo -->
-        <div class="demo reveal" id="try">
-          <div class="demo__copy">
-            <p class="tag tag--hot">Try it</p>
-            <h3>Hold up your hand.</h3>
-            <p>This runs the same tracking math as the real hand, right here in your browser: 21 landmarks become joint angles, joint angles become a curl percentage for each finger, and the hand on screen follows.</p>
-            <p class="small">Your video never leaves this page. Nothing is recorded or uploaded.</p>
-            <div class="demo__buttons">
-              <button class="btn btn--primary" id="demoStart" type="button">Turn on camera</button>
-              <button class="btn" id="demoStop" type="button" hidden>Stop</button>
-            </div>
-            <p class="demo__status" id="demoStatus" role="status">Until then, it's playing its startup wave.</p>
-          </div>
-          <div class="demo__stage">
-            <div class="demo__cam frame" id="demoCamBox" hidden>
-              <canvas id="demoCam" width="640" height="480" aria-label="Your camera with the tracked hand skeleton drawn on top"></canvas>
-            </div>
-            <div class="demo__robot">
-              <canvas id="demoRobot" width="520" height="560" aria-label="A drawing of the robotic hand that copies your finger positions"></canvas>
-              <ul class="bars" id="demoBars" aria-hidden="true">
-                <li><span>Thumb</span><i><b></b></i><em>0%</em></li>
-                <li><span>Index</span><i><b></b></i><em>0%</em></li>
-                <li><span>Middle</span><i><b></b></i><em>0%</em></li>
-                <li><span>Ring</span><i><b></b></i><em>0%</em></li>
-                <li><span>Pinky</span><i><b></b></i><em>0%</em></li>
+            <div class="pcard__body">
+              <span class="tag">Personal project · 2026</span>
+              <h3>JoebotHand</h3>
+              <p>A 3D-printed robotic hand that copies your hand in real time.</p>
+              <ul class="ticks">
+                <li>Camera hand tracking that runs in a phone browser</li>
+                <li>ESP32-S3 firmware driving five servos over Wi-Fi</li>
+                <li>Forearm and stand I redesigned and printed</li>
+                <li>Live demo on the page: try it with your own hand</li>
               </ul>
+              <span class="more">Open project</span>
             </div>
-          </div>
-        </div>
+          </a>
 
-        <!-- hardest problem -->
-        <div class="problem reveal">
-          <div class="problem__main">
-            <p class="tag">The hardest problem</p>
-            <h3>The camera needs HTTPS.<br>The hand has no internet.</h3>
-            <p>Browsers only allow camera access on secure pages, and a secure page isn't allowed to talk to an insecure device on the local network. Hosting the app online was a dead end: it could see my hand but couldn't reach the robot.</p>
-            <p>So I made the hand its own secure website. The ESP32 runs a Wi-Fi hotspot and serves the app over HTTPS, using a real certificate for a domain I own that points at the hand's local address. A phone joins the hotspot, opens the page with no security warning, and everything works with no internet at all.</p>
-          </div>
-          <div class="problem__side">
-            <article>
-              <h4>A servo library bug</h4>
-              <p>Moving one finger moved several. I read the chip's pin routing directly, found the library was sending multiple servos' signals to the same output, and replaced it with direct hardware PWM.</p>
-            </article>
-            <article>
-              <h4>A neural network in 12 MB</h4>
-              <p>The app, MediaPipe's WebAssembly runtime and the model are gzipped into 75% of the flash partition and cached on the phone, so it works offline.</p>
-            </article>
-            <article>
-              <h4>Safe by default</h4>
-              <p>Per-finger angle limits protect the servo gears. A watchdog opens the hand if the phone disconnects, and the servos go limp after a minute of silence.</p>
-            </article>
-          </div>
-        </div>
-
-        <!-- media -->
-        <div class="media3 reveal">
-          <figure class="frame">
-            <video class="loop" muted loop playsinline preload="none" poster="assets/video/hand-startup.jpg" aria-label="Pressing the button on the stand: the hand plays its startup wave.">
-              <source src="assets/video/hand-startup.mp4" type="video/mp4">
-            </video>
-            <figcaption>Press the button: startup chirp and finger wave</figcaption>
-          </figure>
-          <figure class="frame">
-            <video class="loop" muted loop playsinline preload="none" poster="assets/video/hand-sliders.jpg" aria-label="Moving finger sliders in the app while the robotic hand follows.">
-              <source src="assets/video/hand-sliders.mp4" type="video/mp4">
-            </video>
-            <figcaption>Manual control: one slider per finger</figcaption>
-          </figure>
-          <figure class="frame">
-            <img src="assets/img/hand-inside.gif" loading="lazy" width="560" height="315" alt="The hand lifted off the forearm, showing the five servos and their wiring inside.">
-            <figcaption>Inside the forearm: five servos, five strings</figcaption>
-          </figure>
-        </div>
-
-        <!-- iterations -->
-        <div class="split reveal">
-          <figure class="frame">
-            <img src="assets/img/forearm-versions.jpg" loading="lazy" width="1012" height="612" alt="Three 3D-printed forearms side by side, numbered 1 to 3.">
-          </figure>
-          <div>
-            <p class="tag">Iteration</p>
-            <h3>Three forearms.</h3>
-            <ol class="steps">
-              <li><b>The original.</b> The plain forearm from the tutorial design.</li>
-              <li><b>My first redesign.</b> A round base so the hand stands on its own, a press fit so it slides on and off, and a hole for the power button.</li>
-              <li><b>The current one.</b> A hollowed base so the servos get their full range of motion, exits for the wires, and corrected dimensions.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- video + links -->
-        <div class="split split--flip reveal">
-          <div>
-            <p class="tag">Full demo</p>
-            <h3>One minute, start to finish.</h3>
-            <p>Power-on, joining the hand's Wi-Fi, slider control and camera tracking. The repository has the firmware, the web app, the wiring schematic, the debugging sketches and the STL for my forearm.</p>
-            <div class="row">
-              <a class="btn btn--primary" href="https://github.com/JoeTouchman/JoebotHand" target="_blank" rel="noopener">Full build on GitHub <span aria-hidden="true">↗</span></a>
-              <a class="btn" href="https://youtu.be/8RsPFerTg4E" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a class="pcard" href="citrus.html">
+            <div class="pcard__media">
+              <img src="assets/img/mc-tablet.jpg" loading="lazy" width="1141" height="779" alt="A tablet running the Match Collection app I built.">
+              <img class="pcard__logo" src="assets/img/citrus-logo.png" width="313" height="199" alt="Citrus Circuits 1678 logo">
             </div>
-            <p class="credit">Credit where it's due: the hand and finger design comes from Viral Science's flex-sensor robot hand tutorial. Mine are the redesigned forearm and stand, the wiring, the move from Arduino to ESP32-S3, camera tracking in place of flex sensors, the self-hosted web app, and the firmware.</p>
-          </div>
-          <button class="yt frame" type="button" data-yt="8RsPFerTg4E" aria-label="Play the JoebotHand demo video">
-            <img src="https://i.ytimg.com/vi/8RsPFerTg4E/maxresdefault.jpg" loading="lazy" alt="">
-            <span class="yt__play" aria-hidden="true"></span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 02 CITRUS ============ -->
-    <section class="section section--alt" id="citrus">
-      <div class="wrap">
-        <header class="section__head reveal">
-          <p class="index">02 <span>/ FRC Team 1678 · 2024–2026</span></p>
-          <h2>Software a championship team runs on.</h2>
-          <p class="lead">For two seasons I was a front-end developer on Software Scouting at Citrus Circuits, FRC Team 1678. The subteam is 21 students building six apps that record what every robot does in every match, then turn it into the data the drive team and strategists use to plan matches and pick alliance partners.</p>
-        </header>
-
-        <ul class="stats stats--4 reveal">
-          <li><b data-count="2">2</b><span>seasons on the team</span></li>
-          <li><b data-count="21" data-prefix="~">~21</b><span>hours a week in season</span></li>
-          <li><b data-count="18">18</b><span>scouts using my app every match</span></li>
-          <li><b data-count="113">113</b><span>pages in the team's 2026 scouting whitepaper</span></li>
-        </ul>
-
-        <div class="feature reveal">
-          <figure class="frame">
-            <video class="loop" muted loop playsinline preload="none" poster="assets/video/match-collection.jpg" aria-label="Using the Match Collection app on a tablet: tapping field zones in auto, holding the shoot button in teleop, then the endgame screen.">
-              <source src="assets/video/match-collection.mp4" type="video/mp4">
-            </video>
-            <figcaption>Match Collection on a competition tablet: auto, teleop, endgame</figcaption>
-          </figure>
-          <div>
-            <p class="tag tag--hot">My app</p>
-            <h3>Match Collection</h3>
-            <p>I designed and built about 90% of the 2026 Objective Match Collection app, interface design included. It's the tablet app scouts in the stands use to record a timeline of everything one robot does. Every qualification match, 18 scouts run it at once, three per robot.</p>
-            <ul class="ticks">
-              <li>A field map where scouts follow the robot zone to zone, and can only move to zones that actually connect</li>
-              <li>Press-and-hold shot timing with a live timer, so the server can match shooting to the scoreboard second by second</li>
-              <li>Undo and redo, an "incapacitated" mode, and a flipped layout for scouts on the other side of the field</li>
-              <li>Match data leaves the tablet as a QR code, because Wi-Fi isn't allowed at events and Bluetooth is unreliable</li>
-            </ul>
-            <p class="chips"><span>Kotlin</span><span>Jetpack Compose</span><span>Android Studio</span><span>Git</span></p>
-          </div>
-        </div>
-
-        <div class="cards reveal">
-          <article class="card">
-            <p class="tag">Team codebase</p>
-            <h3>Viewer</h3>
-            <p>Viewer is how the drive team and strategists read the data. I built multi-team graphs, which put several teams on one chart or split them into a scrolling list, and the team comparison page that lines up any data point side by side.</p>
-            <blockquote>"You made the multiple team graphs? That's the feature I used the most."<cite>A 1678 coach</cite></blockquote>
-            <p class="small">In 2026 Viewer was rewritten from Android-only to Kotlin Multiplatform, so it runs on Android, desktop and the web.</p>
-          </article>
-          <article class="card">
-            <p class="tag">Team codebase</p>
-            <h3>Stand Strategist</h3>
-            <p>I added "Do Not Pick" flags and match marks. A strategist can flag a team for the rest of the event, or mark one team in one match to come back to, and both collect into sheets they can pull up later.</p>
-            <p class="small">Smaller features in someone else's code taught me the unglamorous part: branches, pull requests, code review, and not breaking what 20 other people are building on.</p>
-          </article>
-          <article class="card card--photo">
-            <img src="assets/img/mc-tablet.jpg" loading="lazy" width="1141" height="779" alt="A tablet running the Match Collection auto screen, showing the field divided into zones.">
-            <p class="small">The auto screen, as scouts see it.</p>
-          </article>
-        </div>
-
-        <div class="gallery reveal">
-          <figure class="frame">
-            <img src="assets/img/team-2026.jpg" loading="lazy" width="1200" height="792" alt="The 2026 Citrus Circuits team posing with five blue FIRST Robotics Competition banners.">
-            <figcaption>Team 1678, 2026. The banners: two event wins, a Milstein Division win and two Impact Awards.</figcaption>
-          </figure>
-          <figure class="frame">
-            <img src="assets/img/worlds.jpg" loading="lazy" width="1200" height="897" alt="Confetti falling over the crowd at the FIRST Championship.">
-            <figcaption>FIRST Championship</figcaption>
-          </figure>
-          <figure class="frame">
-            <img src="assets/img/robot-2026.jpg" loading="lazy" width="900" height="996" alt="The 2026 Citrus Circuits robot, seen from above.">
-            <figcaption>The 2026 robot. Not my work: I wrote the software that scouted everyone else's.</figcaption>
-          </figure>
-        </div>
-
-        <header class="sub reveal">
-          <p class="tag">Also at 1678</p>
-          <h3>Teaching it.</h3>
-          <p>Through the team's youth programs I taught and mentored kids aged 8 to 14. Explaining a lever to a ten-year-old turns out to be good practice for explaining anything.</p>
-        </header>
-
-        <div class="cards cards--teach reveal">
-          <article class="card">
-            <img src="assets/img/drone-course.jpg" loading="lazy" width="800" height="1070" alt="A classroom drone course with arches, hoops and landing pads.">
-            <h3>Fourteen drones, one classroom, no lesson plan</h3>
-            <p>I ran the drone section of the summer robotics camp on my own: I picked which drones to buy, wrote the slides, the safety rules and the lesson plans, and taught kids to code them through rings and onto targets. The teacher kept my materials for later camps.</p>
-          </article>
-          <article class="card">
-            <img src="assets/img/slide-levers.jpg" loading="lazy" width="1200" height="675" alt="One of my slides: a short arm is easy to lift but travels less, a long arm reaches further but needs more torque.">
-            <h3>A class of my own, twice</h3>
-            <p>For a year each at Davis Waldorf and Davis School for Independent Study, I was the weekly robotics instructor, teaching kids to build, code and drive competition robots. I wrote my own lessons on levers, counterweights and weight distribution. That's one of my slides.</p>
-          </article>
-          <article class="card">
-            <img src="assets/img/outreach-market.jpg" loading="lazy" width="1000" height="741" alt="Me running a Citrus Circuits robotics table at a farmers market.">
-            <h3>Wherever they needed someone</h3>
-            <p>At youth VEX IQ tournaments I've been the emcee, the queuer, a referee and the person resetting the field. And at the farmers market, the one handing a kid the controller.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 03 VEX ============ -->
-    <section class="section" id="vex">
-      <div class="wrap">
-        <header class="section__head reveal">
-          <p class="index">03 <span>/ VEX V5 · Two years</span></p>
-          <h2>Two robots, two unfair advantages.</h2>
-          <p class="lead">Alongside Citrus, I spent two years building VEX V5 robots in robotics class. Both years I went looking for the one mechanism nobody else in the room had.</p>
-        </header>
-
-        <div class="vex reveal">
-          <article class="vexcard">
-            <figure class="frame"><img src="assets/img/vex-y1.jpg" loading="lazy" width="1000" height="1121" alt="A VEX robot with tank treads and a rubber-band catapult."></figure>
-            <div>
-              <p class="tag">Year 1 · Over Under · with one teammate</p>
-              <h3>The slip-gear catapult</h3>
-              <p>A gear with half its teeth shaved off. While the teeth mesh, the motor winds the arm back against rubber bands. When the gap comes around, the arm lets go and slaps the game piece across the field. No other team had one, so we scored from our side while everyone else drove back and forth.</p>
-              <ul class="results">
-                <li><b>1st</b><span>in qualifications</span></li>
-                <li><b>Won</b><span>the 16-team school tournament</span></li>
-                <li><b>112–56</b><span>one of our matches</span></li>
+            <div class="pcard__body">
+              <span class="tag">Robotics team · 2024–2026</span>
+              <h3>FRC 1678 Citrus Circuits</h3>
+              <p>Software Scouting front-end developer on a world championship level team.</p>
+              <ul class="ticks">
+                <li>Built Match Collection, the app scouts use every match</li>
+                <li>Added multi-team graphs and comparison to Viewer</li>
+                <li>Taught and mentored youth robotics</li>
               </ul>
+              <span class="more">Open page</span>
             </div>
-          </article>
-          <article class="vexcard vexcard--flip">
-            <figure class="frame"><img src="assets/img/vex-y2.jpg" loading="lazy" width="1000" height="1204" alt="A VEX robot with a chain elevator, a roller intake and a pneumatic cylinder."></figure>
-            <div>
-              <p class="tag">Year 2 · High Stakes · solo build</p>
-              <h3>Pneumatics before anyone else</h3>
-              <p>I designed and built this one alone: a roller intake, a chain elevator that lifts and scores a game piece with one button, and a pneumatic clamp. Nobody in the class had gotten pneumatics working. I figured it out, and the clamp became the robot's biggest edge in the tournament.</p>
-              <p class="chips"><span>Pneumatics</span><span>Chain elevator</span><span>Roller intake</span><span>4-motor drive</span></p>
+          </a>
+
+          <a class="pcard" href="vex.html">
+            <div class="pcard__media">
+              <img src="assets/img/vex-y2.jpg" loading="lazy" width="1000" height="1204" alt="A VEX V5 robot with a chain elevator and a pneumatic cylinder.">
             </div>
-          </article>
+            <div class="pcard__body">
+              <span class="tag">Robotics class · 2 years</span>
+              <h3>VEX V5 robots</h3>
+              <p>Two competition robots, the second one built solo.</p>
+              <ul class="ticks">
+                <li>Year 1: slip-gear catapult, won the school tournament</li>
+                <li>Year 2: pneumatic clamp, chain elevator, roller intake</li>
+              </ul>
+              <span class="more">Open page</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ 04 ABOUT ============ -->
+    <!-- ============ ABOUT ============ -->
     <section class="section section--alt" id="about">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="index">04 <span>/ About</span></p>
-          <h2>Hi, I'm Joe.</h2>
+          <h2>About</h2>
         </header>
 
         <div class="about reveal">
-          <figure class="about__photo frame">
-            <img src="assets/img/portrait.jpg" loading="lazy" width="720" height="720" alt="Joe Touchman in a Citrus Circuits 1678 shirt.">
-          </figure>
           <div class="about__text">
-            <p class="lead">I'm a first-year Robotics Engineering student at UC Santa Cruz, from Davis, California. I like the place where software meets something that physically moves.</p>
-            <p>I got here sideways. As a kid I taught myself Blender to make visual effects for short films, so I was thinking in 3D long before I opened a CAD program. Robotics class turned that into building things, and Citrus Circuits turned it into writing software that other people depend on. The hand at the top of this page is where it all meets: printed parts, a microcontroller, a web app and a vision model that have to agree with each other.</p>
+            <p class="lead">I'm a first-year Robotics Engineering student at UC Santa Cruz, from Davis, California.</p>
+            <p>I work on both sides of a robot. On the hardware side: CAD, 3D printing, wiring, soldering, and firmware for ESP32 and Arduino. On the software side: Android apps in Kotlin, web apps, and Python. I started in 3D as a kid making visual effects in Blender, which made CAD come easily later.</p>
             <div class="looking">
-              <p class="tag tag--hot">What I'm looking for</p>
-              <p>A research lab where I can be useful while I learn. I'm comfortable in firmware, in app code, in CAD and with a soldering iron. I document what I build, and I finish it.</p>
+              <span class="tag tag--hot">Looking for</span>
+              <p>An undergraduate position in a robotics research lab at UC Santa Cruz.</p>
+            </div>
+            <dl class="facts">
+              <dt>Major</dt><dd>Robotics Engineering, B.S. (first year)</dd>
+              <dt>Languages</dt><dd>English and Spanish</dd>
+              <dt>Teaching</dt><dd>Two years mentoring youth robotics, ages 8 to 14</dd>
+              <dt>Outside</dt><dd>Drummer in a rock band, competitive swimmer for three years</dd>
+            </dl>
+          </div>
+
+          <div>
+            <div class="toolbox">
+              <div><h4>Software</h4><ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Python</li><li>JavaScript</li><li>C++ (Arduino)</li><li>Git</li></ul></div>
+              <div><h4>Hardware</h4><ul class="chips"><li>ESP32</li><li>Arduino</li><li>Servos</li><li>Soldering</li><li>Wiring</li><li>Pneumatics</li></ul></div>
+              <div><h4>Design</h4><ul class="chips"><li>Onshape</li><li>3D printing</li><li>Blender</li><li>Visual effects</li></ul></div>
+            </div>
+            <div class="offclock">
+              <figure class="frame">
+                <video class="loop" muted loop playsinline preload="none" poster="assets/video/vfx-lightning.jpg" aria-label="A drone shot of me being struck by computer-generated lightning in the rain.">
+                  <source src="assets/video/vfx-lightning.mp4" type="video/mp4">
+                </video>
+                <figcaption><b>Visual effects.</b> Lightning, rain and a 3D-tracked crater I added to a drone shot for a short film.</figcaption>
+              </figure>
+              <figure class="frame offclock__drums">
+                <img src="assets/img/drums.jpg" loading="lazy" width="900" height="1125" alt="Joe playing a drum kit.">
+                <figcaption><b>Drums</b><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></figcaption>
+              </figure>
             </div>
           </div>
-        </div>
-
-        <div class="toolbox reveal">
-          <div>
-            <h4>Software</h4>
-            <ul><li>Kotlin</li><li>Jetpack Compose</li><li>JavaScript</li><li>C++ for Arduino / ESP32</li><li>Python</li><li>Git &amp; GitHub</li></ul>
-          </div>
-          <div>
-            <h4>Hardware</h4>
-            <ul><li>ESP32 &amp; Arduino</li><li>Servos &amp; PWM</li><li>Soldering</li><li>Wiring &amp; schematics</li><li>Pneumatics</li></ul>
-          </div>
-          <div>
-            <h4>Design</h4>
-            <ul><li>Onshape CAD</li><li>3D printing</li><li>Blender</li><li>Visual effects</li></ul>
-          </div>
-          <div>
-            <h4>People</h4>
-            <ul><li>Teaching &amp; mentoring</li><li>Code review</li><li>English &amp; Spanish</li></ul>
-          </div>
-        </div>
-
-        <div class="offclock reveal">
-          <figure class="frame offclock__vfx">
-            <video class="loop" muted loop playsinline preload="none" poster="assets/video/vfx-lightning.jpg" aria-label="A drone shot of me being struck by computer-generated lightning in the rain.">
-              <source src="assets/video/vfx-lightning.mp4" type="video/mp4">
-            </video>
-            <figcaption><b>Before CAD, there was CGI.</b> 10th grade, for a short film of Ray Bradbury's "The Long Rain": a drone shot, a 3D-tracked crater, and lightning, flashes and rain I added myself.</figcaption>
-          </figure>
-          <figure class="frame offclock__drums">
-            <img src="assets/img/drums.jpg" loading="lazy" width="900" height="1125" alt="Joe playing a drum kit.">
-            <figcaption><b>Off the clock</b><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> I'm the drummer in a rock band. It's the same job as firmware: keep everyone else in time.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section contact" id="contact">
-      <div class="wrap reveal">
-        <p class="index">05 <span>/ Contact</span></p>
-        <h2>Let's talk.</h2>
-        <p class="lead">If you're reading this because I emailed you, thank you for clicking. A reply to that email is the best way to reach me.</p>
-        <div class="row">
-          <a class="btn btn--primary" data-link="email" hidden>Email me</a>
-          <a class="btn" href="https://github.com/JoeTouchman" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-          <a class="btn" href="https://youtu.be/8RsPFerTg4E" target="_blank" rel="noopener">Hand demo <span aria-hidden="true">↗</span></a>
-          <a class="btn" data-link="linkedin" hidden target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="btn" data-link="resume" hidden target="_blank" rel="noopener">Resume (PDF)</a>
         </div>
       </div>
     </section>
@@ -433,12 +203,11 @@
 
   <footer class="footer">
     <div class="wrap">
-      <p>Joseph "Joe" Touchman · Santa Cruz, California</p>
-      <p>Hand-written HTML, CSS and JavaScript. <a href="https://github.com/JoeTouchman/joetouchman.com" target="_blank" rel="noopener">Source on GitHub</a>.</p>
+      <p>Joseph "Joe" Touchman · <a href="mailto:jtouchma@ucsc.edu">jtouchma@ucsc.edu</a></p>
+      <p><a href="https://github.com/JoeTouchman/joetouchman.com" target="_blank" rel="noopener">Site source on GitHub</a></p>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
-  <script src="js/hand-demo.js" type="module"></script>
 </body>
 </html>

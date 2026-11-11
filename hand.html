@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JoebotHand · Joe Touchman</title>
+  <meta name="description" content="JoebotHand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
+  <link rel="canonical" href="https://joetouchman.com/hand.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JoebotHand · Joe Touchman">
+  <meta property="og:description" content="JoebotHand: a 3D-printed robotic hand that copies your hand in real time, using camera hand tracking, an ESP32-S3 and five servos.">
+  <meta property="og:url" content="https://joetouchman.com/hand.html">
+  <meta property="og:image" content="https://joetouchman.com/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0c0b0d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230c0b0d'/%3E%3Ctext x='32' y='44' font-family='Impact,Arial Black,sans-serif' font-size='34' text-anchor='middle' fill='%23f1eee8'%3EJT%3C/text%3E%3Crect x='12' y='52' width='40' height='4' fill='%23e5243b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="index.html" aria-label="Joe Touchman, home">JT<span>.</span></a>
+    <nav class="nav__links" aria-label="Pages">
+      <a href="hand.html" class="is-active">JoebotHand</a>
+      <a href="citrus.html">Citrus Circuits</a>
+      <a href="vex.html">VEX</a>
+      <a href="index.html#about" class="hide-s">About</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <div class="wrap">
+
+      <header class="page__head">
+        <div>
+          <a class="back" href="index.html#projects">All projects</a>
+          <span class="tag">Personal project · 2026</span>
+          <h1>JoebotHand<span>.</span></h1>
+          <p class="lead">A 3D-printed, five-finger robotic hand that copies your hand in real time. A web app tracks your fingers through a phone camera and sends each finger's position over Wi-Fi to an ESP32-S3, which drives five servos that pull the fingers closed with string.</p>
+          <ul class="chips">
+            <li>ESP32-S3</li><li>MediaPipe hand tracking</li><li>HTTPS + WebSocket</li><li>5 MG90S servos</li><li>3D printed</li>
+          </ul>
+          <div class="row">
+            <a class="btn btn--primary" href="https://github.com/JoeTouchman/JoebotHand" target="_blank" rel="noopener">Code on GitHub <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="#try">Try the live demo</a>
+          </div>
+        </div>
+        <button class="yt frame" type="button" data-yt="8RsPFerTg4E" aria-label="Play the one-minute JoebotHand demo video">
+          <img src="https://i.ytimg.com/vi/8RsPFerTg4E/maxresdefault.jpg" alt="">
+          <span class="yt__play" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <section class="block reveal">
+        <h2>How it works</h2>
+        <div class="flow" role="img" aria-label="The phone camera feeds MediaPipe, which finds 21 hand landmarks. A curl calculation turns them into 0 to 100 percent per finger. That goes over Wi-Fi on a secure WebSocket about 30 times a second to the ESP32-S3, which drives five servos that pull the fingers with strings.">
+          <div class="flow__lane">
+            <p class="flow__title">On the phone</p>
+            <div class="flow__row">
+              <div class="node"><b>Camera</b><span>live video</span></div>
+              <div class="arrow"></div>
+              <div class="node"><b>MediaPipe</b><span>21 landmarks in 3D</span></div>
+              <div class="arrow"></div>
+              <div class="node"><b>Curl math</b><span>0–100% per finger</span></div>
+            </div>
+          </div>
+          <div class="flow__link"><span>Wi-Fi · secure WebSocket · ~30×/s</span></div>
+          <div class="flow__lane flow__lane--hot">
+            <p class="flow__title">In the hand</p>
+            <div class="flow__row">
+              <div class="node"><b>ESP32-S3</b><span>limits + watchdog</span></div>
+              <div class="arrow"></div>
+              <div class="node"><b>5 servos</b><span>50 Hz PWM</span></div>
+              <div class="arrow"></div>
+              <div class="node"><b>Fingers</b><span>string tendons</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cards" style="margin-top:14px">
+          <article class="card">
+            <h4>1 · Tracking</h4>
+            <p>MediaPipe finds 21 points on the hand in 3D. Each finger's curl is the sum of its joint bend angles, with side-to-side spread removed, so it doesn't depend on how the hand is turned. Each finger is calibrated between an open and a curled pose.</p>
+          </article>
+          <article class="card">
+            <h4>2 · Link</h4>
+            <p>The phone joins the hand's own Wi-Fi hotspot and opens the app the ESP32 serves. The five curl values are sent over a secure WebSocket about 30 times a second.</p>
+          </article>
+          <article class="card">
+            <h4>3 · Firmware</h4>
+            <p>The ESP32-S3 converts each percentage to a servo angle inside that finger's safe limits and drives the servo with hardware PWM. A watchdog opens the hand if the phone disconnects.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block reveal" id="try">
+        <div class="demo">
+          <div class="demo__copy">
+            <span class="tag tag--hot">Live demo</span>
+            <h2>Try it</h2>
+            <p>This runs the same tracking math as the real hand, in your browser. Turn on your camera, hold up your hand, and the drawing copies your fingers.</p>
+            <p class="small">Your video stays on this page. Nothing is recorded or uploaded.</p>
+            <div class="demo__buttons">
+              <button class="btn btn--primary" id="demoStart" type="button">Turn on camera</button>
+              <button class="btn" id="demoStop" type="button" hidden>Stop</button>
+            </div>
+            <p class="demo__status" id="demoStatus" role="status">Camera off: playing the hand's startup wave.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="demo__cam frame" id="demoCamBox" hidden>
+              <canvas id="demoCam" width="640" height="480" aria-label="Your camera with the tracked hand skeleton drawn on top"></canvas>
+            </div>
+            <div class="demo__robot">
+              <canvas id="demoRobot" width="520" height="560" aria-label="A drawing of the robotic hand that copies your finger positions"></canvas>
+              <ul class="bars" id="demoBars" aria-hidden="true">
+                <li><span>Thumb</span><i><b></b></i><em>0%</em></li>
+                <li><span>Index</span><i><b></b></i><em>0%</em></li>
+                <li><span>Middle</span><i><b></b></i><em>0%</em></li>
+                <li><span>Ring</span><i><b></b></i><em>0%</em></li>
+                <li><span>Pinky</span><i><b></b></i><em>0%</em></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Challenges</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Camera vs. local network</h3>
+            <p>Browsers only allow the camera on secure (HTTPS) pages, but a secure page can't talk to an insecure device like the hand, so hosting the app online didn't work.</p>
+            <p>Fix: the ESP32 serves the app itself over HTTPS, with a real certificate for a domain I own that points at the hand's local address. Phones open it with no warning and no internet.</p>
+          </article>
+          <article class="card">
+            <h3>Servo library bug</h3>
+            <p>With the ESP32Servo library, moving one finger moved several.</p>
+            <p>Fix: I read the chip's pin routing directly, found the library was sending several servos' signals to the same output, and replaced it with direct hardware PWM.</p>
+          </article>
+          <article class="card">
+            <h3>Fitting the model on the chip</h3>
+            <p>The app has to work with no internet, so the web app, MediaPipe's WebAssembly runtime and the model all live in the ESP32's flash.</p>
+            <p>Fix: about 9 MB gzipped into a 12 MB partition, served with download progress and cached on the phone.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Clips</h2>
+        <div class="media3">
+          <figure class="frame">
+            <video class="loop" muted loop playsinline preload="none" poster="assets/video/hand-hero.jpg" aria-label="A phone app tracking my hand while the robotic hand copies the pose.">
+              <source src="assets/video/hand-hero.mp4" type="video/mp4">
+            </video>
+            <figcaption>Camera control: the hand copies mine</figcaption>
+          </figure>
+          <figure class="frame">
+            <video class="loop" muted loop playsinline preload="none" poster="assets/video/hand-sliders.jpg" aria-label="Moving finger sliders in the app while the robotic hand follows.">
+              <source src="assets/video/hand-sliders.mp4" type="video/mp4">
+            </video>
+            <figcaption>Manual control: one slider per finger</figcaption>
+          </figure>
+          <figure class="frame">
+            <img src="assets/img/hand-inside.gif" loading="lazy" width="560" height="315" alt="The hand lifted off the forearm, showing the five servos and their wiring inside.">
+            <figcaption>Inside the forearm: five servos, five strings</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Forearm versions</h2>
+        <div class="split">
+          <figure class="frame">
+            <img src="assets/img/forearm-versions.jpg" loading="lazy" width="1012" height="612" alt="Three 3D-printed forearms side by side, numbered 1 to 3.">
+          </figure>
+          <ol class="steps">
+            <li><b>Original.</b> The plain forearm from the tutorial design.</li>
+            <li><b>First redesign.</b> A round base so the hand stands on its own, a press fit so the hand slides on and off, and a hole for the power button.</li>
+            <li><b>Current.</b> A hollowed base so the servos get their full range of motion, exits for the wires, and corrected dimensions.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Parts and credit</h2>
+        <div class="split" style="align-items:start">
+          <ul class="ticks">
+            <li>ESP32-S3 DevKitC-1 (16 MB flash, 8 MB PSRAM)</li>
+            <li>5 × MG90S servos on a 5 V 5 A supply</li>
+            <li>Braided fishing line as tendons, elastic cord to spring the fingers back open</li>
+            <li>Buzzer for startup and connection sounds, and a status light in the power button</li>
+          </ul>
+          <p class="small">The hand and finger design comes from Viral Science's flex-sensor robot hand tutorial. My work: the redesigned forearm and stand, the wiring, the move from Arduino to ESP32-S3, camera tracking in place of flex sensors, the self-hosted web app, and the firmware. The wiring schematic, firmware and STL are in the <a href="https://github.com/JoeTouchman/JoebotHand" target="_blank" rel="noopener">GitHub repository</a>.</p>
+        </div>
+      </section>
+
+      <nav class="nextup" aria-label="Other projects">
+        <a href="index.html#projects"><span class="tag">Back</span><b>All projects</b></a>
+        <a href="citrus.html"><span class="tag">Next</span><b>FRC 1678 Citrus Circuits</b></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Joseph "Joe" Touchman · <a href="mailto:jtouchma@ucsc.edu">jtouchma@ucsc.edu</a></p>
+      <p><a href="https://github.com/JoeTouchman/joetouchman.com" target="_blank" rel="noopener">Site source on GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/hand-demo.js" type="module"></script>
+</body>
+</html>
