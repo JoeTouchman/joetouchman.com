@@ -5,6 +5,19 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 // Nav gets a background once the page scrolls
 const nav = document.getElementById("nav");
 function onScroll() { nav.classList.toggle("is-stuck", window.scrollY > 24); }
+
+// phone menu
+const navToggle = nav.querySelector(".nav__toggle");
+function setMenu(open) {
+  nav.classList.toggle("menu-open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+navToggle.addEventListener("click", () => setMenu(!nav.classList.contains("menu-open")));
+nav.querySelectorAll(".nav__links a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("click", (e) => { if (!nav.contains(e.target)) setMenu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("menu-open")) { setMenu(false); navToggle.focus(); } });
+matchMedia("(min-width: 641px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
