@@ -252,11 +252,11 @@ function frame(now) {
           smoothed[i] = !handPresent || smoothed[i] == null ? raw : ALPHA * raw + (1 - ALPHA) * smoothed[i];
           curls[i] = normalize(smoothed[i], CAL[i]);
         });
-        if (!handPresent) setStatus("Tracking. Make a fist, point, count to five.");
+        if (!handPresent) setStatus("Tracking");
         handPresent = true;
         liveCurls = curls;
       } else {
-        if (handPresent) setStatus("Lost your hand. Hold it up to the camera.");
+        if (handPresent) setStatus("No hand detected");
         handPresent = false;
         liveCurls = [0, 0, 0, 0, 0];
       }
@@ -347,16 +347,16 @@ async function start() {
   startBtn.hidden = true;
   stopBtn.hidden = false;
   mode = "live";
-  setStatus("Hold your hand up to the camera.");
+  setStatus("No hand detected");
 }
 
 startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", () => {
   stopCamera();
-  setStatus("Camera off. Back to the startup wave.");
+  setStatus("Camera off");
 });
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden && mode === "live") { stopCamera(); setStatus("Camera off."); }
+  if (document.hidden && mode === "live") { stopCamera(); setStatus("Camera off"); }
 });
 
 // ------------------------------------------------------------- 3D model
