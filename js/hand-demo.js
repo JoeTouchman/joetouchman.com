@@ -5,7 +5,8 @@
    MediaPipe gives 21 hand landmarks in 3D, each finger's curl is the sum of its
    joint bend angles, and that is mapped to 0..1 between an "open" and a
    "curled" angle and smoothed. On the real hand those five numbers go to the
-   ESP32 over a WebSocket; here they move the drawing instead.
+   ESP32 over a WebSocket; here they move a 3D model of the hand instead
+   (js/hand-3d.js), with a simple 2D drawing as the fallback.
 
    MediaPipe and its model (about 8 MB) are only downloaded after the visitor
    presses the button. Video is processed in the browser and never uploaded. */
@@ -124,9 +125,9 @@ function drawRobot(curls, connected, time) {
   // status ring: pulses while waiting, solid once a hand is tracked (like the real one)
   const pulse = connected ? 1 : 0.45 + 0.4 * Math.sin(time * 3);
   rctx.beginPath(); rctx.arc(260, 496, 11, 0, Math.PI * 2);
-  rctx.strokeStyle = `rgba(229,36,59,${pulse})`;
+  rctx.strokeStyle = `rgba(47,125,255,${pulse})`;
   rctx.lineWidth = 4;
-  rctx.shadowColor = "rgba(229,36,59,.9)"; rctx.shadowBlur = 16 * pulse;
+  rctx.shadowColor = "rgba(47,125,255,.9)"; rctx.shadowBlur = 16 * pulse;
   rctx.stroke();
   rctx.shadowBlur = 0;
 
@@ -266,7 +267,9 @@ function frame(now) {
 
   // ease the drawing toward the target, the way servos take a moment to get there
   for (let i = 0; i < 5; i++) shown[i] += (target[i] - shown[i]) * (mode === "live" ? 0.45 : 0.3);
-  drawRobot(shown, mode === "live" && handPresent, time);
+  const tracking = mode === "live" && handPresent;
+  if (hand3d) hand3d.update(shown, tracking, mode === "live", time);
+  else drawRobot(shown, tracking, time);
   showBars(shown);
 }
 let liveCurls = [0, 0, 0, 0, 0];
@@ -356,5 +359,25 @@ document.addEventListener("visibilitychange", () => {
   if (document.hidden && mode === "live") { stopCamera(); setStatus("Camera off."); }
 });
 
-new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }).observe(robotCanvas);
+// ------------------------------------------------------------- 3D model
+// The drawing above is what shows first. When the demo is about to scroll into
+// view, the real 3D model (three.js + assets/models/hand.glb) is loaded and
+// takes over. If that fails for any reason, the drawing simply stays.
+let hand3d = null;
+const view = document.getElementById("demoView");
+const hint = document.getElementById("demoHint");
+new IntersectionObserver(async (entries, observer) => {
+  if (!entries[0].isIntersecting) return;
+  observer.disconnect();
+  try {
+    const { createHand3D } = await import("./hand-3d.js");
+    hand3d = await createHand3D(view);
+    robotCanvas.hidden = true;
+    if (hint) hint.hidden = false;
+  } catch (e) {
+    console.warn("3D hand unavailable, keeping the drawing:", e);
+  }
+}, { rootMargin: "700px" }).observe(view);
+
+new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }).observe(view);
 requestAnimationFrame(frame);

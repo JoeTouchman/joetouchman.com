@@ -88,7 +88,7 @@
           <div class="demo__copy">
             <span class="tag tag--hot">Live demo</span>
             <h2>Try it</h2>
-            <p>This runs the same tracking math as the real hand, in your browser. Turn on your camera, hold up your hand, and the drawing copies your fingers.</p>
+            <p>This runs the same tracking math as the real hand, in your browser. Turn on your camera, hold up your hand, and the 3D model copies your fingers.</p>
             <p class="small">Your video stays on this page. Nothing is recorded or uploaded.</p>
             <div class="demo__buttons">
               <button class="btn btn--primary" id="demoStart" type="button">Turn on camera</button>
@@ -101,7 +101,10 @@
               <canvas id="demoCam" width="640" height="480" aria-label="Your camera with the tracked hand skeleton drawn on top"></canvas>
             </div>
             <div class="demo__robot">
-              <canvas id="demoRobot" width="520" height="560" aria-label="A drawing of the robotic hand that copies your finger positions"></canvas>
+              <div class="demo__view" id="demoView">
+                <canvas id="demoRobot" width="520" height="560" aria-label="A drawing of the robotic hand that copies your finger positions"></canvas>
+              </div>
+              <p class="demo__hint" id="demoHint" hidden>3D model of the real hand · drag to rotate</p>
               <ul class="bars" id="demoBars" aria-hidden="true">
                 <li><span>Thumb</span><i><b></b></i><em>0%</em></li>
                 <li><span>Index</span><i><b></b></i><em>0%</em></li>
@@ -225,6 +228,12 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
   <script src="js/hand-demo.js" type="module"></script>
 </body>
 </html>
