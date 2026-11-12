@@ -398,9 +398,8 @@ blockquote cite { display: block; margin-top: .5em; font: 500 .7rem var(--mono);
 @media (max-width: 640px) {
   .wrap { width: calc(100% - 36px); }
   .nav { padding-inline: 18px; }
-  .nav__links { gap: 14px; }
-  .nav__links a { font-size: .66rem; letter-spacing: .06em; }
-  .nav__links .hide-s { display: none; }
+  .nav__links { gap: 12px; }
+  .nav__links a { font-size: .64rem; letter-spacing: .04em; }
   .hero__name .line--outline { -webkit-text-stroke-width: 1.5px; }
   .contacts .c { font-size: .9rem; gap: 10px; }
   .contacts small { display: none; }
@@ -425,4 +424,12 @@ blockquote cite { display: block; margin-top: .5em; font: 500 .7rem var(--mono);
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal, .eyebrow, .contacts, .hero__portrait, .hero__media { opacity: 1; transform: none; }
   .hero__name .line > span { transform: none; }
+}
+@media (max-width: 400px) {
+  .nav { padding-inline: 14px; }
+  .nav__links { gap: 9px; }
+  .nav__links a { letter-spacing: .02em; }
+}
+@media (max-width: 349px) {
+  .nav__links .hide-s { display: none; }
 }
