@@ -300,7 +300,7 @@ blockquote cite { display: block; margin-top: .5em; font: 500 .7rem var(--mono);
 .creditbox h4 { color: var(--text); }
 .creditbox > div:last-child h4 { color: var(--accent); }
 .creditbox p { color: var(--soft); margin: 0; }
-.creditbox a { color: var(--accent); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.creditbox a { color: var(--accent); font-weight: 600; text-decoration: none; }
 .creditbox a::after { content: " ↗"; }
 .creditbox a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .results { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1em; }
